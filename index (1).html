@@ -126,12 +126,16 @@
             z-index: 0;
         }
 
-        /* FIX 1: Added z-index: 3 so the letter comes to the very front */
         .flap>.envelope>.letter {
             bottom: 100px;
             transform: scale(1.5);
             transition-delay: 1s;
-            z-index: 3; 
+        }
+
+        /* The Fix: Disables pointer events on the envelope cover when open so you can click through the invisible borders */
+        .flap>.envelope::before,
+        .flap>.envelope::after {
+            pointer-events: none;
         }
 
         .flap>.heart {
@@ -173,12 +177,10 @@
         const envelopeWrapper = document.querySelector('.envelope-wrapper');
         const letter = document.querySelector('.letter');
 
-        // Opens the envelope when clicked
         envelopeWrapper.addEventListener('click', () => {
             envelopeWrapper.classList.add('flap');
         });
 
-        // FIX 2: Prevents the envelope code from interfering with her clicking the link inside the letter
         letter.addEventListener('click', (event) => {
             event.stopPropagation();
         });
