@@ -37,6 +37,7 @@
         .container>.envelope-wrapper {
             background: var(--bg-envelope-color);
             box-shadow: 0 0 40px var(--shadow-color);
+            cursor: pointer;
         }
 
         .envelope-wrapper>.envelope {
@@ -100,7 +101,6 @@
             transform: translate(-50%, -20%) rotate(45deg);
             transition: transform 0.5s ease-in-out 1s;
             box-shadow: 0 1px 6px var(--shadow-color);
-            cursor: pointer;
         }
 
         .heart:before,
@@ -126,10 +126,12 @@
             z-index: 0;
         }
 
+        /* FIX 1: Added z-index: 3 so the letter comes to the very front */
         .flap>.envelope>.letter {
             bottom: 100px;
             transform: scale(1.5);
             transition-delay: 1s;
+            z-index: 3; 
         }
 
         .flap>.heart {
@@ -137,12 +139,14 @@
             transition-delay: 0.4s;
         }
         
-        /* Added styling to make the butterfly stand out as a link */
         .butterfly-link {
             text-decoration: none;
             font-size: 16px;
             color: var(--heart-color);
             font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
         }
     </style>
 </head>
@@ -157,21 +161,4 @@
                         <p>
                             Sana habang binabasa mo ito ang letra na ito nakakain ka na nang maayos. Miss na miss na miss na kita : (
                             <br><br>
-                            Pindutin ang Butterfly <a href="question.html" class="butterfly-link">ʚїɞ</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="heart"></div>
-        </div>
-    </div>
-    <script>
-        // Envelope animation script
-        const envelope = document.querySelector('.envelope-wrapper');
-        envelope.addEventListener('click', () => {
-            envelope.classList.toggle('flap');
-        });
-    </script>
-</body>
-
-</html>
+                            Pindutin ang
