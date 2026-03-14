@@ -161,4 +161,28 @@
                         <p>
                             Sana habang binabasa mo ito ang letra na ito nakakain ka na nang maayos. Miss na miss na miss na kita : (
                             <br><br>
-                            Pindutin ang
+                            Pindutin ang Butterfly <a href="question.html" class="butterfly-link">ʚїɞ</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+    <script>
+        const envelopeWrapper = document.querySelector('.envelope-wrapper');
+        const letter = document.querySelector('.letter');
+
+        // Opens the envelope when clicked
+        envelopeWrapper.addEventListener('click', () => {
+            envelopeWrapper.classList.add('flap');
+        });
+
+        // FIX 2: Prevents the envelope code from interfering with her clicking the link inside the letter
+        letter.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+    </script>
+</body>
+
+</html>
